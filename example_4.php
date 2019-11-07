@@ -30,9 +30,9 @@ $ioc['ta'] = function($c) {
     return new TestAdapter();
 };
 
-$ioc['tester'] = function($c) {
+$ioc['tester'] = $ioc->factory(function($c) {
     return new Tester($c['ta']);
-};
+});
 
 $tester1 = $ioc['tester'];
 $tester2 = $ioc['tester'];
